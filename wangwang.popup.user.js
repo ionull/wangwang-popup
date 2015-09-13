@@ -3,11 +3,12 @@
 // @description fix wangwang popup issue on Chrome
 // @include     https://trade.taobao.com/trade/itemlist/*
 // @require     http://code.jquery.com/jquery-2.1.1.min.js
-// @version     1
+// @version     2
 // ==/UserScript==
 $(function () {
+    var classes = '.ww-light.ww-large';
     var getNodes = function () {
-        return $('.ww-light.ww-large');
+        return $(classes);
     };
     
     var replaceNodes = function () {
@@ -19,4 +20,6 @@ $(function () {
     };
     
     replaceNodes();
+    
+    waitForKeyElements(classes, replaceNodes);
 });
